@@ -4,7 +4,7 @@
 
 ## Clonar este repositorio
 
-Enlace para clonar [https://github.com/fabios21/Test-Frontend.git](https://github.com/fabios21/Test-Frontend.git)
+Enlace para clonar [https://github.com/fabios21/Frontend-Test.git](https://github.com/fabios21/Frontend-Test.git)
 
 ## Ejercicio 1
 
