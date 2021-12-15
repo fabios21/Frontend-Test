@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 1</title>
+</head>
+<body>
+    <script>
+        function primeNumbers (A, B) {
+            let nums = [];
+
+            function prime (num) {
+                for (var i = 2; i < num; i++) {
+                    if (num % i === 0) {
+                    return false;
+                    }
+                }
+                return num !== 1;
+            }  
+
+            for (let i = A; i <= B; i++) {
+                if (prime (i))
+                    nums.push(i);
+            }
+
+            return nums
+        }
+
+        //Para modificar los datos de entra por favor reasignelos a las variables A y B
+        let A = 1;
+        let B = 10;
+
+        document.write("Lista de números primos" + " " + "del"+ " " + A + " " + "al"+ " " + B + ": " + " " + primeNumbers (A, B));
+    </script>
+</body>
+</html>

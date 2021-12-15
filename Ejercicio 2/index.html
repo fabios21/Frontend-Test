@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // JSON 
+        let values =  {
+            1: {
+                carrier: "CCH",
+                service: "DEX",
+            },
+            17: {
+                carrier: "CHP",
+                service: "express",
+            }
+        }
+
+        // JSON
+        let json = { 
+                    data: {
+                        BUIN: {
+                            limit: 1,
+                            over_carrier_service_id: 17,
+                            under_carrier_service_id: 17
+                        },
+                        LAJA: {
+                            limit: 1,
+                            over_carrier_service_id: 1,
+                            under_carrier_service_id: 1
+                        },
+                        LEBU: {
+                            limit: 1,
+                            over_carrier_service_id: 1,
+                            under_carrier_service_id: 1
+                        },
+                        LOTA: {
+                            limit: 1,
+                            over_carrier_service_id: 17,
+                            under_carrier_service_id: 17
+                        }
+                    }
+                }
+
+        function jsonData (values, json) {
+            let result = {};
+
+            for(var data in json.data) {
+                result[data] = json.data[data]
+            }
+
+            for(var data in result) {
+                result[data]["over"] = result[data]["over_carrier_service_id"]
+                delete result[data]["over_carrier_service_id"]
+
+                result[data]["under"] = result[data]["under_carrier_service_id"]
+                delete result[data]["under_carrier_service_id"]
+
+                if (result[data].over === 1) {
+                    result[data].over = values[1]
+                } else {
+                    result[data].over = values[17]
+                }
+
+                if (result[data].under === 1) {
+                    result[data].under = values[1]
+                } else {
+                    result[data].under = values[17]
+                }
+            }
+
+            result =  JSON.stringify (result)
+            return result
+        }
+                
+        document.write("Resultado de JSONs manipulados:" + " " + " " + jsonData (values, json));
+    </script>
+</body>
+</html>
